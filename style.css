@@ -23,6 +23,9 @@ a {
     font-size: 48px;
     margin-right: 10px;
 }
+#title:hover {
+    cursor: pointer;
+}
 .search-bar {
     display: flex;
     align-items: center;
@@ -38,15 +41,24 @@ a {
     padding: 2px 0 2px 8px;
     background-color: rgba(255,255,255,0.2);
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 .container {
     display: flex;
+    flex-grow: 1;
     width: 100%;
+    height: 100%;
 }
 .sidebar {
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    min-height: 100vh;
+    height: auto;
     border-right: 1px solid;
 }
 .sidebar a {
@@ -54,12 +66,14 @@ a {
 }
 .content {
     flex-grow: 1;
+    height: auto;
     padding: 0px 20px;
 }
 .sidebar ul {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     width: max-content;
     justify-content: space-between;
     list-style-type: none;
@@ -80,8 +94,17 @@ a {
     background-color: rgba(255,255,255,0.2);
 }
 .sidebar ul li a:hover .material-symbols-outlined {
-    background-color: rgba(255,255,255,0.01);
+    background-color: rgba(255,255,255,0);
 }
+
+.sidebar-clicked {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.sidebar-clicked .material-symbols-outlined {
+    background-color: rgba(255,255,255,0);
+}
+
 footer {
     display: flex;
     border-top: 1px solid;
@@ -106,30 +129,30 @@ footer img {
   'opsz' 24
 }
 
-/* -- BIO PAGE --*/
-.bio {
+/* -- DESC PAGES --*/
+#bio, #projects, #documentation {
     display: none;
 }
-#bio-top-block {
+.desc-top-block {
     display: flex;
     margin-bottom: 20px;
     overflow: auto;
 }
-#bio-top-block-text {
+.desc-top-block-text {
     max-width: 85%;
 }
 
-#bio-top-block h2, 
-#bio-top-block p {
+.desc-top-block h2, 
+.desc-top-block p {
     flex: 1;
 }
 
-#bio-top-block-image {
+.desc-top-block-image {
     display: flex;
     align-items: center;
 }
 
-#bio-top-block img {
+.desc-top-block img {
     width: auto;
     height: 125px;
     margin: 20px 25px 0 25px;
@@ -137,27 +160,94 @@ footer img {
     border: 3px solid #0E86D4;
     object-fit: cover;
 }
-#bio-columns {
+.desc-top-block-image .material-symbols-outlined {
+    font-size: 100px;
+    margin: 20px 25px 0 25px;
+}
+.desc-columns {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates three columns of equal width */
-    gap: 20px; /* Adjust the gap between columns as needed */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-#bio-columns h3 {
-    margin: 0; /* Optional: Resets margin for clean alignment */
+.desc-columns h3 {
+    margin: 0;
 }
 
-#bio-columns h4 {
+.desc-columns h4 {
     margin-top: 0;
     margin-bottom: 5px;
 }
 
-#bio-columns h5 {
+.desc-columns h5 {
     margin-top: 0;
     margin-bottom: 5px;
 }
 
-#bio-columns p {
+.desc-columns p {
     margin-top: 0;
     margin-bottom: 20px;
+}
+
+/* -- DOCS PAGE --*/
+
+.doc-top-block {
+    display: flex;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    overflow: auto;
+}
+
+.doc-top-block-text {
+    max-width: 75%;
+}
+
+.doc-top-block-menu {
+    width: 25%;
+    padding: 15px 25px 0 25px;
+    margin-top: 20px;
+    border: 1px solid #0E86D4;
+    background-color: rgba(14,134,212,0.1);
+}
+
+.doc-top-block-menu h3 {
+    margin: 0 0 5px 0;
+    background-color: rgba(14,134,212,0);
+}
+
+.doc-top-block-menu ul {
+    list-style-type: none;
+    margin-top: 5px;
+    padding-left: 0;
+    background-color: rgba(14,134,212,0);
+}
+
+.doc-top-block-menu li {
+    padding: 5px 0;
+    background-color: rgba(14,134,212,0);
+}
+
+.doc-top-block-menu .material-symbols-outlined {
+    background-color: rgba(14,134,212,0);
+}
+
+.doc-top-block-menu .selected {
+    display: none;
+    color: #68BBE3; 
+}
+
+.doc-menu-item a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background-color: rgba(14,134,212,0);
+    text-decoration: none;
+}
+
+.doc-menu-item a:hover {
+    color: #68BBE3; 
+}
+
+.doc-item-clicked {
+    color: #68BBE3;
 }
