@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebarElements = document.querySelectorAll('.sidebar-clickable');
     sidebarElements.forEach(function(element) {
         element.addEventListener('click', function() {
-            elements.forEach(function(el) {
+            sidebarElements.forEach(function(el) {
                 el.classList.remove('sidebar-clicked');
             });
             this.classList.add('sidebar-clicked');
@@ -57,14 +57,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     const titleElement = document.querySelector('#title');
     titleElement.addEventListener('click', function() {
-        elements.forEach(function(el) {
+        titleElement.forEach(function(el) {
             el.classList.remove('sidebar-clicked');
         });
     })
     const docElements = document.querySelectorAll('.doc-item-clickable');
     docElements.forEach(function(element) {
         element.addEventListener('click', function() {
-            elements.forEach(function(el) {
+            docElements.forEach(function(el) {
                 el.classList.remove('doc-item-clicked');
             });
             this.classList.add('doc-item-clicked');
