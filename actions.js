@@ -70,4 +70,15 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('doc-item-clicked');
         });
     });
+    document.querySelectorAll('.doc-menu-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const docToLoad = "docs/" + this.getAttribute('data-doc');
+            fetch(docToLoad)
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('.doc-top-block-text').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading the document:', error));
+        });
+    });
 });
