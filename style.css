@@ -252,10 +252,6 @@ footer img {
     text-decoration: none;
 }
 
-.doc-top-block-menu a.inactive {
-    color: #fff;
-}
-
 .doc-menu-item a:hover, .doc-top-block-menu a.active {
     color: #68BBE3; 
 }
