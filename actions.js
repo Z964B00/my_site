@@ -33,14 +33,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('doc-home').addEventListener('click', function() {
             document.querySelector('.doc-top-block-text').innerHTML = initialDocTopBlockText;
             menuItems.forEach(el => {
-                el.querySelector('a').classList.remove('active');
+                el.classList.remove('active');
         });
     });
 
     const menuItems = document.querySelectorAll('.doc-top-block-menu li');
     menuItems.forEach(function(item) {
         item.addEventListener('mouseenter', function(event) {
-            if (!this.querySelector('a').classList.contains('active')) {
+            if (!this.classList.contains('active')) {
                 let unselectedDoc = item.querySelector('.unselected');
                 let selectedDoc = item.querySelector('.selected');
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         item.addEventListener('mouseleave', function(event) {
-            if (!this.querySelector('a').classList.contains('active')) {
+            if (!this.classList.contains('active')) {
                 let unselectedDoc = item.querySelector('.unselected');
                 let selectedDoc = item.querySelector('.selected');
 
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 unselected.style.display = 'block';
                 selected.style.display = 'none';
 
-                el.querySelector('a').classList.remove('active');
+                el.classList.remove('active');
             });
 
             let unselectedDoc = this.querySelector('.unselected');
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
             unselectedDoc.style.display = 'none';
             selectedDoc.style.display = 'block';
 
-            this.querySelector('a').classList.add('active');
+            this.classList.add('active');
         });
     });
 
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', function() {
             document.querySelector('.doc-top-block-text').innerHTML = initialDocTopBlockText;
             menuItems.forEach(el => {
-                el.querySelector('a').classList.remove('active');
+                el.classList.remove('active');
                 let unselectedDoc = el.querySelector('.unselected');
                 let selectedDoc = el.querySelector('.selected');
                 unselectedDoc.style.display = 'block';

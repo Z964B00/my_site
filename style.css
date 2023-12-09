@@ -231,6 +231,7 @@ footer img {
 }
 
 .doc-top-block-menu li {
+    width: max-content;
     padding: 5px 0;
     background-color: rgba(14,134,212,0);
 }
@@ -244,7 +245,7 @@ footer img {
     color: #68BBE3; 
 }
 
-.doc-menu-item a {
+.doc-menu-item {
     display: flex;
     align-items: center;
     color: #fff;
@@ -252,6 +253,7 @@ footer img {
     text-decoration: none;
 }
 
-.doc-menu-item a:hover, .doc-top-block-menu a.active {
-    color: #68BBE3; 
+.doc-menu-item:hover, .doc-top-block-menu li.active {
+    color: #68BBE3;
+    cursor: pointer;
 }
