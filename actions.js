@@ -28,24 +28,58 @@ document.addEventListener('DOMContentLoaded', function() {
         projContent.style.display = 'none';
         docContent.style.display = 'block';
     });
+
+    const initialDocTopBlockText = document.querySelector('.doc-top-block-text').innerHTML;
+        document.getElementById('doc-home').addEventListener('click', function() {
+            document.querySelector('.doc-top-block-text').innerHTML = initialDocTopBlockText;
+            menuItems.forEach(el => {
+                el.querySelector('a').classList.remove('active');
+        });
+    });
+
     const menuItems = document.querySelectorAll('.doc-top-block-menu li');
     menuItems.forEach(function(item) {
         item.addEventListener('mouseenter', function(event) {
-            let unselectedDoc = item.querySelector('.unselected');
-            let selectedDoc = item.querySelector('.selected');
+            if (!this.querySelector('a').classList.contains('active')) {
+                let unselectedDoc = item.querySelector('.unselected');
+                let selectedDoc = item.querySelector('.selected');
 
-            unselectedDoc.style.display = 'none';
-            selectedDoc.style.display = 'block';
+                unselectedDoc.style.display = 'none';
+                selectedDoc.style.display = 'block';
+            }
         });
 
         item.addEventListener('mouseleave', function(event) {
-            let unselectedDoc = item.querySelector('.unselected');
-            let selectedDoc = item.querySelector('.selected');
+            if (!this.querySelector('a').classList.contains('active')) {
+                let unselectedDoc = item.querySelector('.unselected');
+                let selectedDoc = item.querySelector('.selected');
 
-            unselectedDoc.style.display = 'block';
-            selectedDoc.style.display = 'none';
+                unselectedDoc.style.display = 'block';
+                selectedDoc.style.display = 'none';
+            }
         });
-    })
+
+        item.addEventListener('click', function(event) {
+            menuItems.forEach(el => {
+                let unselected = el.querySelector('.unselected');
+                let selected = el.querySelector('.selected');
+
+                unselected.style.display = 'block';
+                selected.style.display = 'none';
+
+                el.querySelector('a').classList.remove('active');
+            });
+
+            let unselectedDoc = this.querySelector('.unselected');
+            let selectedDoc = this.querySelector('.selected');
+
+            unselectedDoc.style.display = 'none';
+            selectedDoc.style.display = 'block';
+
+            this.querySelector('a').classList.add('active');
+        });
+    });
+
     const sidebarElements = document.querySelectorAll('.sidebar-clickable');
     sidebarElements.forEach(function(element) {
         element.addEventListener('click', function() {
@@ -55,30 +89,37 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('sidebar-clicked');
         });
     });
+
     const titleElement = document.querySelector('#title');
     titleElement.addEventListener('click', function() {
-        titleElement.forEach(function(el) {
+        sidebarElements.forEach(function(el) {
             el.classList.remove('sidebar-clicked');
         });
-    })
-    const docElements = document.querySelectorAll('.doc-item-clickable');
-    docElements.forEach(function(element) {
-        element.addEventListener('click', function() {
-            docElements.forEach(function(el) {
-                el.classList.remove('doc-item-clicked');
-            });
-            this.classList.add('doc-item-clicked');
-        });
     });
+
     document.querySelectorAll('.doc-menu-item').forEach(item => {
         item.addEventListener('click', function() {
-            const docToLoad = "docs/" + this.getAttribute('data-doc');
+            const docToLoad = this.getAttribute('data-doc');
             fetch(docToLoad)
                 .then(response => response.text())
                 .then(data => {
                     document.querySelector('.doc-top-block-text').innerHTML = data;
                 })
                 .catch(error => console.error('Error loading the document:', error));
+        });
+    });
+
+    const sidebarMenuItems = document.querySelectorAll('.sidebar li');
+    sidebarMenuItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            document.querySelector('.doc-top-block-text').innerHTML = initialDocTopBlockText;
+            menuItems.forEach(el => {
+                el.querySelector('a').classList.remove('active');
+                let unselectedDoc = el.querySelector('.unselected');
+                let selectedDoc = el.querySelector('.selected');
+                unselectedDoc.style.display = 'block';
+                selectedDoc.style.display = 'none';
+            });
         });
     });
 });
