@@ -193,6 +193,7 @@ footer img {
 
 .doc-top-block {
     display: flex;
+    align-items: flex-start;
     margin-bottom: 20px;
     margin-right: 10px;
     overflow: auto;
@@ -200,10 +201,12 @@ footer img {
 
 .doc-top-block-text {
     max-width: 75%;
+    padding-right: 20px;
 }
 
 .doc-top-block-menu {
     width: 25%;
+    height: max-content;
     padding: 15px 25px 0 25px;
     margin-top: 20px;
     border: 1px solid #0E86D4;
@@ -213,6 +216,11 @@ footer img {
 .doc-top-block-menu h3 {
     margin: 0 0 5px 0;
     background-color: rgba(14,134,212,0);
+}
+
+.doc-top-block-menu h3:hover {
+    cursor: pointer;
+    color: #68BBE3;
 }
 
 .doc-top-block-menu ul {
@@ -244,10 +252,10 @@ footer img {
     text-decoration: none;
 }
 
-.doc-menu-item a:hover {
-    color: #68BBE3; 
+.doc-top-block-menu a.inactive {
+    color: #fff;
 }
 
-.doc-item-clicked {
-    color: #68BBE3;
+.doc-menu-item a:hover, .doc-top-block-menu a.active {
+    color: #68BBE3; 
 }
