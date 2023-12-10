@@ -34,6 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.doc-top-block-text').innerHTML = initialDocTopBlockText;
             menuItems.forEach(el => {
                 el.classList.remove('active');
+                let unselectedDoc = el.querySelector('.unselected');
+                let selectedDoc = el.querySelector('.selected');
+                unselectedDoc.style.display = 'block';
+                selectedDoc.style.display = 'none';
         });
     });
 

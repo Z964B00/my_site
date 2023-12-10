@@ -61,9 +61,6 @@ body {
     height: auto;
     border-right: 1px solid;
 }
-.sidebar a {
-    color: #fff;
-}
 .content {
     flex-grow: 1;
     height: auto;
@@ -83,17 +80,17 @@ body {
 .sidebar ul li:last-child {
     margin-top: auto;
 }
-.sidebar ul li a {
-    text-decoration: none;
+.sidebar ul li {
     display: flex;
     align-items: center;
     padding: 10px 20px 10px 10px;
     margin-bottom: 5px;
 }
-.sidebar ul li a:hover {
+.sidebar ul li:hover {
     background-color: rgba(255,255,255,0.2);
+    cursor: pointer;
 }
-.sidebar ul li a:hover .material-symbols-outlined {
+.sidebar ul li:hover .material-symbols-outlined {
     background-color: rgba(255,255,255,0);
 }
 
