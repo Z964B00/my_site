@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var bioContent = document.querySelector('#bio');
     var projContent = document.querySelector('#projects');
     var docContent = document.querySelector('#documentation');
+    var contactInfo = document.querySelector('#contact-info');
     document.getElementById('title').addEventListener('click', function(event) {
         homeContent.style.display = 'block';
         bioContent.style.display = 'none';
@@ -27,6 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
         bioContent.style.display = 'none'
         projContent.style.display = 'none';
         docContent.style.display = 'block';
+    });
+    document.getElementById('contact-link').addEventListener('click', function(event) {
+        if (contactInfo.style.visibility === 'visible') {
+            contactInfo.style.visibility = 'hidden';
+        } else {
+            contactInfo.style.visibility = 'visible';
+        }
     });
 
     const initialDocTopBlockText = document.querySelector('.doc-top-block-text').innerHTML;
@@ -117,6 +125,15 @@ document.addEventListener('DOMContentLoaded', function() {
     sidebarMenuItems.forEach(function(item) {
         item.addEventListener('click', function() {
             document.querySelector('.doc-top-block-text').innerHTML = initialDocTopBlockText;
+            document.getElementById('fact-placeholder-1').style.display = 'block';
+            document.getElementById('site-fact-one').style.display = 'none';
+            document.getElementById('site-fact-two').style.display = 'none';
+            document.getElementById('site-fact-three').style.display = 'none';
+            document.getElementById('site-fact').value = 'placeholder';
+            document.getElementById('fact-placeholder-2').style.display = 'block';
+            document.getElementById('personal-fact-one').style.display = 'none';
+            document.getElementById('personal-fact-two').style.display = 'none';
+            document.getElementById('personal-fact-three').style.display = 'none';
             menuItems.forEach(el => {
                 el.classList.remove('active');
                 let unselectedDoc = el.querySelector('.unselected');
@@ -126,4 +143,55 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    document.getElementById('site-fact').addEventListener('change', function() {
+        var selectedFact = this.value;
+        var factPlaceholder = document.getElementById('fact-placeholder-1');
+        document.getElementById('fact-placeholder-1').style.display = 'none';
+        document.getElementById('site-fact-one').style.display = 'none';
+        document.getElementById('site-fact-two').style.display = 'none';
+        document.getElementById('site-fact-three').style.display = 'none';
+        switch (selectedFact) {
+            case 'placeholder':
+                document.getElementById('fact-placeholder-1').style.display = 'block';
+                break;
+            case 'bio-fact':
+                document.getElementById('site-fact-one').style.display = 'block';
+                break;
+            case 'projects-fact':
+                document.getElementById('site-fact-two').style.display = 'block';
+                break;
+            case 'documentation-fact':
+                document.getElementById('site-fact-three').style.display = 'block';
+                break;
+            default:
+                factPlaceholder.style.display = 'block';
+        }
+    });
+
+    document.querySelector('.site-facts input[type="reset"]').addEventListener('click', function(event) {
+        document.getElementById('fact-placeholder-1').style.display = 'block';
+        document.getElementById('site-fact-one').style.display = 'none';
+        document.getElementById('site-fact-two').style.display = 'none';
+        document.getElementById('site-fact-three').style.display = 'none';
+        document.getElementById('site-fact').value = 'placeholder';
+    }); 
+    
+    document.querySelector('.personal-facts input[type="submit"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('fact-placeholder-2').style.display = 'none';
+        document.getElementById('personal-fact-one').style.display = 'none';
+        document.getElementById('personal-fact-two').style.display = 'none';
+        document.getElementById('personal-fact-three').style.display = 'none';
+        const factIds = ['personal-fact-one', 'personal-fact-two', 'personal-fact-three'];
+        const randomFactId = factIds[Math.floor(Math.random() * factIds.length)];
+        document.getElementById(randomFactId).style.display = 'block';
+    });
+
+    document.querySelector('.personal-facts input[type="reset"]').addEventListener('click', function(event) {
+        document.getElementById('fact-placeholder-2').style.display = 'block';
+        document.getElementById('personal-fact-one').style.display = 'none';
+        document.getElementById('personal-fact-two').style.display = 'none';
+        document.getElementById('personal-fact-three').style.display = 'none';
+    }); 
 });
