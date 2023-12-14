@@ -134,6 +134,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('personal-fact-one').style.display = 'none';
             document.getElementById('personal-fact-two').style.display = 'none';
             document.getElementById('personal-fact-three').style.display = 'none';
+            document.getElementById('education-description').style.visibility = 'hidden';
+            document.getElementById('experience-description').style.visibility = 'hidden';
+            document.getElementById('skills-description').style.visibility = 'hidden';
+            document.getElementById('fe-dev-description').style.visibility = 'hidden';
+            document.getElementById('python-description').style.visibility = 'hidden';
+            document.getElementById('gpts-description').style.visibility = 'hidden';
             menuItems.forEach(el => {
                 el.classList.remove('active');
                 let unselectedDoc = el.querySelector('.unselected');
@@ -193,5 +199,65 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('personal-fact-one').style.display = 'none';
         document.getElementById('personal-fact-two').style.display = 'none';
         document.getElementById('personal-fact-three').style.display = 'none';
-    }); 
+    });
+
+    document.getElementById('education-description').style.visibility = 'hidden';
+    document.getElementById('education').addEventListener('click', function(event) {
+        const edDesc = document.querySelector('#education-description');
+        if (edDesc.style.visibility === 'hidden') {
+            edDesc.style.visibility = 'visible';
+        } else {
+            edDesc.style.visibility = 'hidden';
+        }
+    })
+
+    document.getElementById('experience-description').style.visibility = 'hidden';
+    document.getElementById('experience').addEventListener('click', function(event) {
+        const expDesc = document.querySelector('#experience-description');
+        if (expDesc.style.visibility === 'hidden') {
+            expDesc.style.visibility = 'visible';
+        } else {
+            expDesc.style.visibility = 'hidden';
+        }
+    })
+
+    document.getElementById('skills-description').style.visibility = 'hidden';
+    document.getElementById('skills').addEventListener('click', function(event) {
+        const skillsDesc = document.querySelector('#skills-description');
+        if (skillsDesc.style.visibility === 'hidden') {
+            skillsDesc.style.visibility = 'visible';
+        } else {
+            skillsDesc.style.visibility = 'hidden';
+        }
+    })
+
+    document.getElementById('fe-dev-description').style.visibility = 'hidden';
+    document.getElementById('fe-dev').addEventListener('click', function(event) {
+        const fedevDesc = document.querySelector('#fe-dev-description');
+        if (fedevDesc.style.visibility === 'hidden') {
+            fedevDesc.style.visibility = 'visible';
+        } else {
+            fedevDesc.style.visibility = 'hidden';
+        }
+    })
+
+    document.getElementById('python-description').style.visibility = 'hidden';
+    document.getElementById('python').addEventListener('click', function(event) {
+        const pythonDesc = document.querySelector('#python-description');
+        if (pythonDesc.style.visibility === 'hidden') {
+            pythonDesc.style.visibility = 'visible';
+        } else {
+            pythonDesc.style.visibility = 'hidden';
+        }
+    })
+
+    document.getElementById('gpts-description').style.visibility = 'hidden';
+    document.getElementById('gpts').addEventListener('click', function(event) {
+        const gptsDesc = document.querySelector('#gpts-description');
+        if (gptsDesc.style.visibility === 'hidden') {
+            gptsDesc.style.visibility = 'visible';
+        } else {
+            gptsDesc.style.visibility = 'hidden';
+        }
+    })
 });

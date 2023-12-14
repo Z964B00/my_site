@@ -287,6 +287,15 @@ footer img {
 
 .desc-columns h3 {
     margin: 0;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #0E86D4;
+    background-color: rgba(14,134,212,0.1);
+}
+
+.desc-columns h3:hover {
+    cursor: pointer;
+    background-color: rgba(14,134,212,0.2);
 }
 
 .desc-columns h4 {
