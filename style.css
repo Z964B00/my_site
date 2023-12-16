@@ -381,3 +381,104 @@ footer img {
     color: #68BBE3;
     cursor: pointer;
 }
+
+/* -- MOBILE RESP --*/
+
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stacks children vertically */
+    }
+
+    .content {
+        width: 100%; /* Full width of the screen */
+        padding: 0;
+        margin: 0 0 70px 5px;
+    }
+     
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        flex-direction: row; /* Aligns children horizontally */
+        width: 100%; /* Full width of the screen */
+        min-height: auto;
+        border-top: solid 3px;
+    }
+
+    .sidebar ul {
+        flex-direction: row; /* Children in a row */
+        justify-content: space-around;
+        width: 100%; /* Full width of the sidebar */
+        padding: 0; /* Adjust padding as necessary */
+        min-height: auto;
+    }
+
+    /* Shift text in sidebar li elements and reduce font size */
+    .sidebar ul li {
+        flex-direction: column; /* Changes from column to row */
+        justify-content: flex-space; /* Aligns items to the start */
+        align-items: center;
+        padding: 10px 10px 10px 10px;
+    }
+
+    .sidebar .material-symbols-outlined {
+        margin-right: 0;
+      }
+
+    #contact-info {
+        display: none;
+    }
+
+    #homepage-forms {
+        display: block;
+    }
+
+    #homepage-form-1 {
+        margin-bottom: 12px;
+    }
+
+    #homepage h2, #homepage h3, #homepage p {
+        width: 98%;
+    }
+
+    #homepage-form-1, #homepage-form-2 {
+        width: 97%;
+    }
+
+    /* In #bio and #projects, remove image and stack elements */
+    #bio .desc-top-block-image, #projects .desc-top-block-image {
+        display: none;
+    }
+    #bio .desc-top-block-text, #projects .desc-top-block-text,
+    #bio .desc-columns, #projects .desc-columns {
+        width: 100%;
+    }
+
+    .desc-columns {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #education, #education-description, 
+    #experience, #experience-description, 
+    #skills, #skills-description {
+        width: 100%; /* Ensure each element takes full width */
+        margin-bottom: 10px; /* Add some space between elements */
+    }
+
+    /* In #documentation, stack elements and put menu on top */
+    #documentation .doc-top-block {
+        flex-direction: column-reverse;
+    }
+
+    .doc-top-block-menu {
+        width: 88%;
+    }
+
+    .doc-top-block-text {
+        max-width: 100%;
+    }
+
+    footer {
+        display: none;
+    }
+}
