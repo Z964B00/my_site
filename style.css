@@ -90,6 +90,7 @@ body {
     padding: 10px 20px 10px 10px;
     margin-bottom: 5px;
 }
+
 .sidebar ul li:hover {
     background-color: rgba(255,255,255,0.2);
     cursor: pointer;
@@ -286,7 +287,7 @@ footer img {
 }
 
 .desc-columns h3 {
-    margin: 0;
+    margin: 0 0 15px 0;
     padding: 5px;
     text-align: center;
     border: 1px solid #0E86D4;
@@ -402,6 +403,7 @@ footer img {
         width: 100%; /* Full width of the screen */
         min-height: auto;
         border-top: solid 3px;
+        z-index: 1001;
     }
 
     .sidebar ul {
@@ -425,7 +427,26 @@ footer img {
       }
 
     #contact-info {
-        display: none;
+        position: fixed; /* Fixes the position on the screen */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centers the div */
+        z-index: 1000; /* Ensures it overlays over everything else */
+        font-size: 1rem;;
+        padding-right: 10px;
+        margin-right: 10px;
+        border: 1px solid #0E86D4;
+        background-color: rgb(1,30,64);
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.8); /* Tint effect */
+        z-index: 999; /* Behind #contact-info but above everything else */
     }
 
     #homepage-forms {
@@ -456,13 +477,6 @@ footer img {
     .desc-columns {
         display: flex;
         flex-direction: column;
-    }
-
-    #education, #education-description, 
-    #experience, #experience-description, 
-    #skills, #skills-description {
-        width: 100%; /* Ensure each element takes full width */
-        margin-bottom: 10px; /* Add some space between elements */
     }
 
     /* In #documentation, stack elements and put menu on top */

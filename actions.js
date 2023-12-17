@@ -134,12 +134,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('personal-fact-one').style.display = 'none';
             document.getElementById('personal-fact-two').style.display = 'none';
             document.getElementById('personal-fact-three').style.display = 'none';
-            document.getElementById('education-description').style.visibility = 'hidden';
-            document.getElementById('experience-description').style.visibility = 'hidden';
-            document.getElementById('skills-description').style.visibility = 'hidden';
-            document.getElementById('fe-dev-description').style.visibility = 'hidden';
-            document.getElementById('python-description').style.visibility = 'hidden';
-            document.getElementById('gpts-description').style.visibility = 'hidden';
+            document.getElementById('education-description').style.display = 'none';
+            document.getElementById('experience-description').style.display = 'none';
+            document.getElementById('skills-description').style.display = 'none';
+            document.getElementById('fe-dev-description').style.display = 'none';
+            document.getElementById('python-description').style.display = 'none';
+            document.getElementById('gpts-description').style.display = 'none';
             menuItems.forEach(el => {
                 el.classList.remove('active');
                 let unselectedDoc = el.querySelector('.unselected');
@@ -201,63 +201,89 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('personal-fact-three').style.display = 'none';
     });
 
-    document.getElementById('education-description').style.visibility = 'hidden';
+    document.getElementById('education-description').style.display = 'none';
     document.getElementById('education').addEventListener('click', function(event) {
         const edDesc = document.querySelector('#education-description');
-        if (edDesc.style.visibility === 'hidden') {
-            edDesc.style.visibility = 'visible';
+        if (edDesc.style.display === 'none') {
+            edDesc.style.display = 'block';
         } else {
-            edDesc.style.visibility = 'hidden';
+            edDesc.style.display = 'none';
         }
     })
 
-    document.getElementById('experience-description').style.visibility = 'hidden';
+    document.getElementById('experience-description').style.display = 'none';
     document.getElementById('experience').addEventListener('click', function(event) {
         const expDesc = document.querySelector('#experience-description');
-        if (expDesc.style.visibility === 'hidden') {
-            expDesc.style.visibility = 'visible';
+        if (expDesc.style.display === 'none') {
+            expDesc.style.display = 'block';
         } else {
-            expDesc.style.visibility = 'hidden';
+            expDesc.style.display = 'none';
         }
     })
 
-    document.getElementById('skills-description').style.visibility = 'hidden';
+    document.getElementById('skills-description').style.display = 'none';
     document.getElementById('skills').addEventListener('click', function(event) {
         const skillsDesc = document.querySelector('#skills-description');
-        if (skillsDesc.style.visibility === 'hidden') {
-            skillsDesc.style.visibility = 'visible';
+        if (skillsDesc.style.display === 'none') {
+            skillsDesc.style.display = 'block';
         } else {
-            skillsDesc.style.visibility = 'hidden';
+            skillsDesc.style.display = 'none';
         }
     })
 
-    document.getElementById('fe-dev-description').style.visibility = 'hidden';
+    document.getElementById('fe-dev-description').style.display = 'none';
     document.getElementById('fe-dev').addEventListener('click', function(event) {
         const fedevDesc = document.querySelector('#fe-dev-description');
-        if (fedevDesc.style.visibility === 'hidden') {
-            fedevDesc.style.visibility = 'visible';
+        if (fedevDesc.style.display === 'none') {
+            fedevDesc.style.display = 'block';
         } else {
-            fedevDesc.style.visibility = 'hidden';
+            fedevDesc.style.display = 'none';
         }
     })
 
-    document.getElementById('python-description').style.visibility = 'hidden';
+    document.getElementById('python-description').style.display = 'none';
     document.getElementById('python').addEventListener('click', function(event) {
         const pythonDesc = document.querySelector('#python-description');
-        if (pythonDesc.style.visibility === 'hidden') {
-            pythonDesc.style.visibility = 'visible';
+        if (pythonDesc.style.display === 'none') {
+            pythonDesc.style.display = 'block';
         } else {
-            pythonDesc.style.visibility = 'hidden';
+            pythonDesc.style.display = 'none';
         }
     })
 
-    document.getElementById('gpts-description').style.visibility = 'hidden';
+    document.getElementById('gpts-description').style.display = 'none';
     document.getElementById('gpts').addEventListener('click', function(event) {
         const gptsDesc = document.querySelector('#gpts-description');
-        if (gptsDesc.style.visibility === 'hidden') {
-            gptsDesc.style.visibility = 'visible';
+        if (gptsDesc.style.display === 'none') {
+            gptsDesc.style.display = 'block';
         } else {
-            gptsDesc.style.visibility = 'hidden';
+            gptsDesc.style.display = 'none';
         }
     })
+
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        let overlay = document.createElement('div');
+        overlay.classList.add('overlay');
+        const contactLink = document.getElementById('contact-link');
+        const contactInfo = document.getElementById('contact-info');
+    
+        contactLink.addEventListener('click', function() {
+            if (contactInfo.style.display === 'block') {
+                // Hide contact info and remove overlay
+                contactInfo.style.display = 'none';
+                document.body.removeChild(overlay);
+                contactLink.classList.remove('sidebar-clicked');
+            } else {
+                // Show contact info and add overlay
+                document.body.appendChild(overlay);
+                contactInfo.style.display = 'block';
+                contactLink.classList.add('sidebar-clicked');
+            }
+        });
+    
+        overlay.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    }
+     
 });
